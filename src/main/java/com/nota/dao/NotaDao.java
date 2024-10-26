@@ -13,7 +13,7 @@ public class NotaDao implements NotaInterfaces{
 
 	private Connection conn;
 	private ConnectionFactory cf = new ConnectionFactory();
-	private NotaInterfaces iNota = new NotaDao();
+	//private NotaInterfaces iNota = new NotaDao();
 	
 	
 	public NotaDao() {
@@ -27,7 +27,7 @@ public class NotaDao implements NotaInterfaces{
 
 	@Override
 	public void inserir(Nota nota) {
-		String sql = "INSERT INTO NOTA (NOTA1, NOTA2, NOTA3, PROVA, ID_DISCIPLINA, ID_ALUNO) VALUES (?,?,?,?,?,?);";
+		String sql = "INSERT INTO NOTA (NOTA1, NOTA2, NOTA3, PROVA, disciplina_id, aluno_id) VALUES (?,?,?,?,?,?);";
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
