@@ -11,25 +11,20 @@ import com.nota.modal.Nota;
 
 public class Teste {
 public static void main(String[] args) {
-	NotaInterfaces iNota = new NotaDao();
-	// Criando uma instância de Nota para teste
-    Nota nota = new Nota();
-    nota.setNota1(8.0);
-    nota.setNota2(7.5);
-    nota.setNota3(9.0);
-    nota.setProva(8.5);
-    
-    Disciplina disciplina = new Disciplina();
-    disciplina.setId(1); // Defina o ID da disciplina correspondente
-    nota.setDisciplina(disciplina);
-    
+	 // Configurando um Aluno existente para editar
     Aluno aluno = new Aluno();
-    aluno.setId_aluno(1); // Defina o ID do aluno correspondente
-    nota.setAluno(aluno);
-    
-    // Inserindo a nota
-    iNota.inserir(nota);
-    System.out.println("Nota inserida com sucesso!");
+    aluno.setId_aluno(1);  // ID do aluno que será atualizado
+    aluno.setNome("Maria Silva");
+    aluno.setEmail("maria.silva@email.com");
+    aluno.setStatus_aluno("Ativo");
+
+    // Criando uma instância do AlunoDao para editar o aluno
+    AlunoDao alunoDao = new AlunoDao();
+
+    // Tentando atualizar o aluno no banco
+    alunoDao.editar(aluno);
+
+    System.out.println("Teste de atualização de aluno finalizadoo.");;
     
 }
 }

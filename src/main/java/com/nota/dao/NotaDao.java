@@ -51,8 +51,23 @@ public class NotaDao implements NotaInterfaces {
 
     @Override
     public void editar(Nota nota) {
-	// TODO Auto-generated method stub
+    	String sql = "UPDATE NOTA SET NOTA1 = ?, NOTA2 = ?, NOTA3 = ?, PROVA = ?, disciplina_id = ?, aluno_id = ? WHERE ID = ?;";
+    	
+    	try {
+    	    PreparedStatement ps = conn.prepareStatement(sql);
 
+    	    ps.setDouble(1, nota.getNota1());
+    	    ps.setDouble(2, nota.getNota2());
+    	    ps.setDouble(3, nota.getNota3());
+    	    ps.setDouble(4, nota.getProva());
+    	    ps.setInt(5, nota.getDisciplina().getId());
+    	    ps.setInt(6, nota.getAluno().getId_aluno());
+    	    ps.setInt(7, nota.getId_nota());
+    	    ps.execute();
+    	} catch (SQLException e) {
+    	    System.err.println("Erro ao inserir nota: " + e);
+    	}
+    	
     }
 
     @Override

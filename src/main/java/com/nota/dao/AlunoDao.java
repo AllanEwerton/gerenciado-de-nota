@@ -36,7 +36,7 @@ public class AlunoDao implements AlunoInterfaces {
 	    ps.execute();
 
 	} catch (SQLException e) {
-	    System.err.println("Erro ao inserir nota: " + e);
+	    System.err.println("Erro ao inserir aluno: " + e);
 	}
 
     }
@@ -49,8 +49,20 @@ public class AlunoDao implements AlunoInterfaces {
 
     @Override
     public void editar(Aluno aluno) {
-	// TODO Auto-generated method stub
+    	String sql = "UPDATE ALUNO SET NOME = ?, EMAIL = ?, status_aluno = ? WHERE ID = ?;";    	
+    	try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, aluno.getNome());
+		    ps.setString(2, aluno.getEmail());
+		    ps.setString(3, aluno.getStatus_aluno());
+		    ps.setInt(4, aluno.getId_aluno());
+		    ps.executeUpdate();
+		    
+		} catch (SQLException e) {
+		    System.err.println("Erro ao editar aluno: " + e);
 
+		}
     }
 
     @Override

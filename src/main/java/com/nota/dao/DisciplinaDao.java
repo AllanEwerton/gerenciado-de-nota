@@ -87,7 +87,17 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 
 	@Override
 	public void editar(Disciplina disciplina) {
-	// TODO Auto-generated method stub
+		String sql = "UPDATE DISCIPLINA SET NOME = ?, WHERE ID = ?;";
+		
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+		    ps.setString(1, disciplina.getNome());
+		    ps.setInt(2, disciplina.getId());
+		    ps.execute();
+		} catch (SQLException e) {
+		    System.err.println(">>> "+e.getMessage());
+		}
 	
 	}
 
