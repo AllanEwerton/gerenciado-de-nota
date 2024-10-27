@@ -10,7 +10,6 @@ import java.util.List;
 import com.nota.interfaces.DisciplinaInterfaces;
 import com.nota.modal.Disciplina;
 import com.nota.service.ConnectionFactory;
-import com.projetobiblitech.model.Livros;
 
 public class DisciplinaDao implements DisciplinaInterfaces {
 
@@ -64,9 +63,9 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 	return disciplina;
     }
 
-public List<Disciplina> list() {
+    public List<Disciplina> list() {
 	
-	String sql = "SELECT * FROM livros";
+	String sql = "SELECT * FROM DISCIPLINA ORDER BY NOME ASC";
 	List<Disciplina> list = null;
 	
 	try {
@@ -86,16 +85,16 @@ public List<Disciplina> list() {
 	return list;
     }
 
-   // @Override
-   // public void excluir(int idDisciplina) {
-	//String sql = "INSERT INTO DISCIPLINA (NOME) VALUES (?);";
-
-
-   // }
-
-   // @Override
-   // public List<Disciplina> list() {
+	@Override
+	public void editar(Disciplina disciplina) {
+	// TODO Auto-generated method stub
 	
-   // }
+	}
+
+	@Override
+	public void excluir(int idDisciplina) {
+	// TODO Auto-generated method stub
+	
+	}
 
 }
