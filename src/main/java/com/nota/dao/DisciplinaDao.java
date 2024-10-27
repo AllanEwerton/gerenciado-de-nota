@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.nota.interfaces.DisciplinaInterfaces;
@@ -63,11 +64,27 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 	return disciplina;
     }
 
-   // @Override
-    //public void editar(Disciplina disciplina) {
+public List<Disciplina> list() {
 	
-
-   // }
+	String sql = "SELECT * FROM livros";
+	List<Disciplina> list = null;
+	
+	try {
+	    PreparedStatement ps = conn.prepareStatement(sql);
+	    ResultSet rs = ps.executeQuery();
+	    list = new ArrayList<>();
+	    while(rs.next()) {
+		int id = rs.getInt("id_disciplina");
+		String nome = rs.getString("nome");
+		Disciplina disciplina = new Disciplina(id, nome);
+		list.add(disciplina);
+	    }
+	    
+	}catch(SQLException e){
+	    System.err.println(">>> "+e.getMessage());
+	}
+	return list;
+    }
 
    // @Override
    // public void excluir(int idDisciplina) {
