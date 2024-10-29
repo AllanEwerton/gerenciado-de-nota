@@ -23,8 +23,18 @@ public class Nota {
 	this.disciplina = disciplina;
 	this.aluno = aluno;
     }
+    
 
-    public int getId_nota() {
+    public Nota(double nota1, double nota2, double nota3, double prova, Disciplina disciplina, Aluno aluno) {
+		this.nota1 = nota1;
+		this.nota2 = nota2;
+		this.nota3 = nota3;
+		this.prova = prova;
+		this.disciplina = disciplina;
+		this.aluno = aluno;
+	}
+
+	public int getId_nota() {
 	return id_nota;
     }
 

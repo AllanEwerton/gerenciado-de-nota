@@ -43,7 +43,7 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 
     @Override
     public Disciplina consultar(int idDisciplina) {
-	String sql = "SELECT * FROM DISCIPLINA WHERE ID_DISCIPLINA = ?";
+	String sql = "SELECT * FROM DISCIPLINA WHERE id = ?";
 	Disciplina disciplina = null;
 	
 	try {
@@ -52,7 +52,7 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 	    ResultSet rs = ps.executeQuery();
 	    
 	    if(rs.next()) {
-		idDisciplina = rs.getInt("id_disciplina");	
+		idDisciplina = rs.getInt("id");	
 		String nome = rs.getString("nome");
 		disciplina = new Disciplina(idDisciplina, nome);
 	    }
@@ -73,7 +73,7 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 	    ResultSet rs = ps.executeQuery();
 	    list = new ArrayList<>();
 	    while(rs.next()) {
-		int id = rs.getInt("id_disciplina");
+		int id = rs.getInt("id");
 		String nome = rs.getString("nome");
 		Disciplina disciplina = new Disciplina(id, nome);
 		list.add(disciplina);
@@ -87,7 +87,7 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 
 	@Override
 	public void editar(Disciplina disciplina) {
-		String sql = "UPDATE DISCIPLINA SET NOME = ?, WHERE ID = ?;";
+		String sql = "UPDATE DISCIPLINA SET NOME = ? WHERE ID = ?;";
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -102,9 +102,27 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 	}
 
 	@Override
-	public void excluir(int idDisciplina) {
-	// TODO Auto-generated method stub
-	
-	}
+		public void excluir(int idDisciplina) {
+		    String deleteNotasSql = "DELETE FROM NOTA WHERE DISCIPLINA_ID = ?";
+		    String deleteDisciplinaSql = "DELETE FROM DISCIPLINA WHERE ID = ?";
+
+		    try {
+		        // Excluir as notas associadas à disciplina
+		        PreparedStatement psNotas = conn.prepareStatement(deleteNotasSql);
+		        psNotas.setInt(1, idDisciplina);
+		        psNotas.executeUpdate();
+
+		        // Excluir a disciplina
+		        PreparedStatement psDisciplina = conn.prepareStatement(deleteDisciplinaSql);
+		        psDisciplina.setInt(1, idDisciplina);
+		        psDisciplina.executeUpdate();
+
+		        System.out.println("Disciplina e notas associadas excluídas com sucesso!");
+
+		    } catch (SQLException e) {
+		        System.err.println("Erro ao excluir disciplina: " + e.getMessage());
+		    }
+		}
+
 
 }

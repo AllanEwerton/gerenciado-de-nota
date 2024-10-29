@@ -2,11 +2,15 @@ package com.nota.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.nota.interfaces.AlunoInterfaces;
 import com.nota.modal.Aluno;
+import com.nota.modal.Disciplina;
+import com.nota.modal.Nota;
 import com.nota.service.ConnectionFactory;
 
 public class AlunoDao implements AlunoInterfaces {
@@ -43,8 +47,26 @@ public class AlunoDao implements AlunoInterfaces {
 
     @Override
     public Aluno consultar(int idAluno) {
-	// TODO Auto-generated method stub
-	return null;
+    	String sql = "SELECT * FROM Aluno WHERE ID = ?";
+    	Aluno aluno = null;
+    	
+    	try {
+    	   PreparedStatement ps = conn.prepareStatement(sql);
+    	   ps.setInt(1, idAluno);
+    	   ResultSet rs = ps.executeQuery();
+    	   
+    	   if(rs.next()) {
+    			idAluno = rs.getInt("id");	
+    			String nome = rs.getString("nome");
+    			String email = rs.getString("email");
+    			String statusAluno = rs.getString("status_aluno");
+    			aluno = new Aluno(idAluno, nome, email, statusAluno);
+    		    }
+
+    	} catch (SQLException e) {
+    	    System.err.println("Erro ao inserir nota: " + e);
+    	}
+    	return aluno;
     }
 
     @Override
@@ -65,16 +87,55 @@ public class AlunoDao implements AlunoInterfaces {
 		}
     }
 
+    
     @Override
     public void excluir(int idAluno) {
-	// TODO Auto-generated method stub
+        // Primeiro, exclua todas as notas do aluno
+        NotaDao notaDao = new NotaDao();
+        List<Nota> notas = notaDao.list(); // Obtenha todas as notas
 
+        for (Nota nota : notas) {
+            if (nota.getAluno().getId_aluno() == idAluno) {
+                notaDao.excluir(nota.getId_nota()); // Exclua a nota se o aluno corresponder
+            }
+        }
+
+        // Depois, exclua o aluno
+        String sql = "DELETE FROM ALUNO WHERE ID = ?;";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, idAluno);
+            ps.executeUpdate();
+            System.out.println("Aluno excluído com sucesso!");
+        } catch (Exception e) {
+            System.out.println("Erro ao excluir Aluno: " + e.getMessage());
+        }
     }
+
 
     @Override
     public List<Aluno> list() {
-	// TODO Auto-generated method stub
-	return null;
+    	String sql = "SELECT * FROM ALUNO ORDER BY NOME ASC";
+    	List<Aluno> list = null;
+    	
+    	try {
+    	    PreparedStatement ps = conn.prepareStatement(sql);
+    	    ResultSet rs = ps.executeQuery();
+    	    list = new ArrayList<>();
+    	    while(rs.next()) {
+    	    	int id = rs.getInt("id");	
+    			String nome = rs.getString("nome");
+    			String email = rs.getString("email");
+    			String statusAluno = rs.getString("status_aluno");
+    			Aluno aluno = new Aluno(id, nome, email, statusAluno);
+    		
+    		list.add(aluno);
+    	    }
+    	    
+    	}catch(SQLException e){
+    	    System.err.println(">>> "+e.getMessage());
+    	}
+    	return list;
     }
 
 }

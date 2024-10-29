@@ -9,8 +9,16 @@ public class Aluno {
     public Aluno() {
 
     }
+    
 
-    public Aluno(int id_aluno, String nome, String email, String status_aluno) {
+    public Aluno(String nome, String email, String status_aluno) {
+		this.nome = nome;
+		this.email = email;
+		this.status_aluno = status_aluno;
+	}
+
+
+	public Aluno(int id_aluno, String nome, String email, String status_aluno) {
 	this.id_aluno = id_aluno;
 	this.nome = nome;
 	this.email = email;
