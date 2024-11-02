@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -24,13 +24,13 @@
                     </i>
                 </button>
                 <div class="sidebar-logo">
-                    <a href="index.html" class="logo">G-Notas</i></a>
+                    <a href="index.jsp" class="logo">G-Notas</i></a>
                 </div>
             </div>
 
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="dashboard.html" target="centro" class="sidebar-link">
+                    <a href="assets/jsp/dashboard.jsp" target="centro" class="sidebar-link">
                         <i class="lni lni-user">
                             <i class="bi bi-columns-gap"></i>
                         </i>
@@ -48,13 +48,13 @@
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="formulario-aluno.html" target="centro" class="sidebar-link">Aluno</a>
+                            <a href="assets/jsp/formulario-aluno.jsp" target="centro" class="sidebar-link">Aluno</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="formulario-disciplina.html" target="centro" class="sidebar-link">Disciplinas</a>
+                            <a href="assets/jsp/formulario-disciplina.jsp" target="centro" class="sidebar-link">Disciplinas</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="formulario-notas.html" target="centro" class="sidebar-link">Notas</a>
+                            <a href="assets/jsp/formulario-notas.jsp" target="centro" class="sidebar-link">Notas</a>
                         </li>
                     </ul>
                 </li>
@@ -69,13 +69,13 @@
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="listar-alunos.html" target="centro" class="sidebar-link">Aluno</a>
+                            <a href="assets/jsp/listar-alunos.jsp" target="centro" class="sidebar-link">Aluno</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="listar-disciplina.html" target="centro" class="sidebar-link">Disciplinas</a>
+                            <a href="assets/jsp/listar-disciplina.jsp" target="centro" class="sidebar-link">Disciplinas</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="listar-notas.html" target="centro" class="sidebar-link">Notas</a>
+                            <a href="assets/jsp/listar-notas.jsp" target="centro" class="sidebar-link">Notas</a>
                         </li>
                     </ul>
                 </li>
@@ -136,7 +136,7 @@
                 <main class="context px-2 py-4">
                     <div class="container-fluid ">
 
-                        <iframe src="dashboard.html" frameborder="0" name="centro" ></iframe>
+                        <iframe src="assets/jsp/dashboard.jsp" frameborder="0" name="centro" ></iframe>
                          
                     </div>
                 </main>
@@ -195,7 +195,7 @@
 
 
 
-<script src="script.js"></script>
+<script src="assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
