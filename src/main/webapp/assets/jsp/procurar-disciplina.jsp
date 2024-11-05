@@ -1,3 +1,8 @@
+<%@page import="java.util.List"%>
+<%@page import="com.projetobiblitech.interfaces.AlunoInterface"%>
+<%@page import="com.projetobiblitech.model.Livros"%>
+<%@page import="com.projetobiblitech.model.LivrosDAO"%>
+
 <!doctype html>
 <html lang="en">
 

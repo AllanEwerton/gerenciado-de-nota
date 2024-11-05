@@ -1,3 +1,8 @@
+<%@page import="java.util.List"%>
+<%@page import="com.nota.interfaces.AlunoInterfaces"%>
+<%@page import="com.nota.modal.Aluno"%>
+<%@page import="com.nota.dao.AlunoDao"%>
+
 <!doctype html>
 <html lang="pt-br">
 

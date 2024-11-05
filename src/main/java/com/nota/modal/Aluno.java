@@ -10,6 +10,11 @@ public class Aluno {
 
     }
     
+    public Aluno(String nome, String email) {
+	this.nome = nome;
+	this.email = email;
+}
+    
 
     public Aluno(String nome, String email, String status_aluno) {
 		this.nome = nome;

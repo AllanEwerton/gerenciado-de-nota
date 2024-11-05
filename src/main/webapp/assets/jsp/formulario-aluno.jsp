@@ -20,17 +20,27 @@
     
     <!-- CARDS DASHBOARD -->
     <div class="form-card">
-            <form class="form row g-3 col-12">
-                <div class="col-12 col-md-8">
+            <form action="controle.jsp" method="POST" class="form row g-3 col-12">
+            
+                <div class="col-12 col-md-7">
                   <label for="inputNome" class="form-label">Nome</label>
-                  <input type="email" class="form-control" id="inputNome">
+                  <input type="text" name="nome" class="form-control" id="inputNome">
                 </div>
-                <div class="col-4">
+                
+                <div class="col-5">
                     <label for="exampleFormControlInput1" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1">
+                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1">
                 </div>
+                
+                <div class="col-12 col-md-2">
+                <label for="inputStatus" class="form-label">Situação</label>
+              <select id="inputState" class="form-select" name="status_aluno">
+                <option selected value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+              </select>
+            </div>
+            
                 <div class="col-12 text-end">
-                  <button type="submit" class="btn btn-primary">cancelar</button>
                   <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
               </form>
