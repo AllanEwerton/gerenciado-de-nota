@@ -20,7 +20,7 @@
     
     <!-- CARDS DASHBOARD -->
     <div class="form-card">
-            <form action="controle.jsp" method="POST" class="form row g-3 col-12">
+            <form action="controle.jsp?op=1" method="POST" class="form row g-3 col-12">
             
                 <div class="col-12 col-md-7">
                   <label for="inputNome" class="form-label">Nome</label>
