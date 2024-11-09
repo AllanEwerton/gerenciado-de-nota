@@ -18,6 +18,8 @@
 	
 	int op = Integer.parseInt(request.getParameter("op"));
 
+	AlunoInterfaces iAluno = new AlunoDao();
+	DisciplinaInterfaces iDisciplina = new DisciplinaDao();
 
 	switch(op){
 	//ALUNO =====================================================
@@ -30,7 +32,7 @@
 	
 		Aluno aluno = new Aluno(nome, email, status);
 		out.println(aluno);
-		AlunoInterfaces iAluno = new AlunoDao();
+		
 		iAluno.inserir(aluno);
 		out.println(aluno);
 		
@@ -54,7 +56,6 @@
 		
 			Disciplina disciplina = new Disciplina(nome);
 			out.println(disciplina);
-			DisciplinaInterfaces iDisciplina = new DisciplinaDao();
 			iDisciplina.inserir(disciplina);
 			out.println(disciplina);
 		
@@ -75,19 +76,23 @@
 		case 7:{
 // int id_nota, double nota1, double nota2, double nota3, double prova, Disciplina disciplina,Aluno aluno)
 			String nome = request.getParameter("nome");
-			String disciplina = request.getParameter("disciplina");
-			String nota1 = request.getParameter("nota1");
-			String nota2 = request.getParameter("nota2");
-			String nota3 = request.getParameter("nota3");
-			String prova = request.getParameter("prova");
+			String disciplina1 = request.getParameter("disciplina");
+			
+			Double nota1 = Double.parseDouble(request.getParameter("nota1").replace(",", "."));
+			Double nota2 = Double.parseDouble(request.getParameter("nota2").replace(",", "."));
+			Double nota3 = Double.parseDouble(request.getParameter("nota3").replace(",", "."));
+			Double prova = Double.parseDouble(request.getParameter("prova").replace(",", "."));
 		
-			Nota nota = new Nota(nome, disciplina, nota1, nota2, nota3, prova);
-			out.println(nota);
+			Aluno aluno = iAluno.consultar(1);	
+			//out.println(aluno);
+			Disciplina disciplina = iDisciplina.consultar(1);
+			Nota nota = new Nota(nota1, nota2, nota3, prova, disciplina, aluno);
+
 			NotaInterfaces iNota = new NotaDao();
 			iNota.inserir(nota);
-			out.println(nota);
+			//out.println(nota);
 		
-		response.sendRedirect("formulario-notas.jsp");  
+		    response.sendRedirect("formulario-notas.jsp");  
 			break;
 		}
 		

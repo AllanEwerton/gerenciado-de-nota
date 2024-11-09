@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import com.nota.interfaces.AlunoInterfaces;
 import com.nota.modal.Aluno;
 import com.nota.modal.Disciplina;
@@ -47,16 +49,17 @@ public class AlunoDao implements AlunoInterfaces {
 
     @Override
     public Aluno consultar(int idAluno) {
-    	String sql = "SELECT * FROM Aluno WHERE ID = ?";
+    	String sql = "SELECT * FROM Aluno WHERE ID_ALUNO = ?";
     	Aluno aluno = null;
     	
     	try {
     	   PreparedStatement ps = conn.prepareStatement(sql);
     	   ps.setInt(1, idAluno);
     	   ResultSet rs = ps.executeQuery();
-    	   
+    	   //JOptionPane.showMessageDialog(null, "1");
     	   if(rs.next()) {
-    			idAluno = rs.getInt("id");	
+    			idAluno = rs.getInt("id_aluno");
+    			
     			String nome = rs.getString("nome");
     			String email = rs.getString("email");
     			String statusAluno = rs.getString("status_aluno");
@@ -64,14 +67,14 @@ public class AlunoDao implements AlunoInterfaces {
     		    }
 
     	} catch (SQLException e) {
-    	    System.err.println("Erro ao inserir nota: " + e);
+    	    System.err.println("Erro ao consultar aluno: " + e);
     	}
     	return aluno;
     }
 
     @Override
     public void editar(Aluno aluno) {
-    	String sql = "UPDATE ALUNO SET NOME = ?, EMAIL = ?, status_aluno = ? WHERE ID = ?;";    	
+    	String sql = "UPDATE ALUNO SET NOME = ?, EMAIL = ?, status_aluno = ? WHERE ID_ALUNO = ?;";    	
     	try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
@@ -101,7 +104,7 @@ public class AlunoDao implements AlunoInterfaces {
         }
 
         // Depois, exclua o aluno
-        String sql = "DELETE FROM ALUNO WHERE ID = ?;";
+        String sql = "DELETE FROM ALUNO WHERE ID_ALUNO = ?;";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, idAluno);
@@ -123,7 +126,7 @@ public class AlunoDao implements AlunoInterfaces {
     	    ResultSet rs = ps.executeQuery();
     	    list = new ArrayList<>();
     	    while(rs.next()) {
-    	    	int id = rs.getInt("id");	
+    	    	int id = rs.getInt("id_aluno");	
     			String nome = rs.getString("nome");
     			String email = rs.getString("email");
     			String statusAluno = rs.getString("status_aluno");

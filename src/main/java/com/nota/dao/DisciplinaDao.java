@@ -43,7 +43,7 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 
     @Override
     public Disciplina consultar(int idDisciplina) {
-	String sql = "SELECT * FROM DISCIPLINA WHERE id = ?";
+	String sql = "SELECT * FROM DISCIPLINA WHERE id_disciplina = ?";
 	Disciplina disciplina = null;
 	
 	try {
@@ -52,7 +52,7 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 	    ResultSet rs = ps.executeQuery();
 	    
 	    if(rs.next()) {
-		idDisciplina = rs.getInt("id");	
+		idDisciplina = rs.getInt("id_disciplina");	
 		String nome = rs.getString("nome");
 		disciplina = new Disciplina(idDisciplina, nome);
 	    }
@@ -73,7 +73,7 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 	    ResultSet rs = ps.executeQuery();
 	    list = new ArrayList<>();
 	    while(rs.next()) {
-		int id = rs.getInt("id");
+		int id = rs.getInt("id_disciplina");
 		String nome = rs.getString("nome");
 		Disciplina disciplina = new Disciplina(id, nome);
 		list.add(disciplina);
@@ -87,7 +87,7 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 
 	@Override
 	public void editar(Disciplina disciplina) {
-		String sql = "UPDATE DISCIPLINA SET NOME = ? WHERE ID = ?;";
+		String sql = "UPDATE DISCIPLINA SET NOME = ? WHERE id_disciplina = ?;";
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);

@@ -22,7 +22,7 @@
   
   <!-- CARDS DASHBOARD -->
   <div class="form-card">
-          <form class="form row g-3 col-12">
+          <form class="form row g-3 col-12" action="controle.jsp?op=7" method="Post">
             <div class="col-8">
               <label for="inputNumber" class="form-label">Aluno</label>
               <select id="inputState" class="form-select">
@@ -46,19 +46,19 @@
 
               <div class="col-1">
                 <label for="inputNumber" class="form-label">Nota 1</label>
-                <input type="number" class="form-control" id="inputNumber" value="0.0">
+                <input type="text" class="form-control" id="inputNumber" placeholder="Nota 1" name="nota1" required>
               </div>
               <div class="col-1">
                 <label for="inputNumber" class="form-label">Nota 2</label>
-                <input type="number" class="form-control" id="inputNumber" value="0.0">
+                <input type="text" class="form-control" id="inputNumber" placeholder="Nota 2" name="nota2" required>
               </div>
               <div class="col-1">
                 <label for="inputNumber" class="form-label">Nota 3</label>
-                <input type="number" class="form-control" id="inputNumber" value="0.0">
+                <input type="text" class="form-control" id="inputNumber" placeholder="Nota 3" name="nota3" required>
               </div>
               <div class="col-1">
                 <label for="inputNumber" class="form-label">Prova</label>
-                <input type="number" class="form-control" id="inputNumber" value="0.0">
+                <input type="text" class="form-control" id="inputNumber" placeholder="Prova" name="prova" required>
               </div>
 
 

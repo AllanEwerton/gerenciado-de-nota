@@ -62,10 +62,12 @@ public class Aluno {
 	this.status_aluno = status_aluno;
     }
 
-    @Override
-    public String toString() {
-	return "Aluno [id_aluno=" + id_aluno + ", nome=" + nome + ", email=" + email + ", status_aluno=" + status_aluno
-		+ "]";
-    }
+	@Override
+	public String toString() {
+		return "Aluno [id_aluno=" + id_aluno + ", nome=" + nome + ", email=" + email + ", status_aluno=" + status_aluno
+				+ "]";
+	}
+
+   
 
 }

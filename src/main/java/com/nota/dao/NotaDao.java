@@ -52,7 +52,7 @@ public class NotaDao implements NotaInterfaces {
 
     @Override
     public Nota consultar(int idNota) {
-    	String sql = "SELECT * FROM NOTA WHERE ID = ?";
+    	String sql = "SELECT * FROM NOTA WHERE id_nota = ?";
     	Nota nota = null;
     	
     	try {
@@ -61,7 +61,7 @@ public class NotaDao implements NotaInterfaces {
     	    ResultSet rs = ps.executeQuery();
     	    
     	    if(rs.next()) {
-    		idNota = rs.getInt("id");	
+    		idNota = rs.getInt("id_nota");	
     		double nota1 = rs.getDouble("nota1");
     		double nota2 = rs.getDouble("nota2");
     		double nota3 = rs.getDouble("nota3");
@@ -81,7 +81,7 @@ public class NotaDao implements NotaInterfaces {
 
     @Override
     public void editar(Nota nota) {
-    	String sql = "UPDATE NOTA SET NOTA1 = ?, NOTA2 = ?, NOTA3 = ?, PROVA = ?, disciplina_id = ?, aluno_id = ? WHERE ID = ?;";
+    	String sql = "UPDATE NOTA SET NOTA1 = ?, NOTA2 = ?, NOTA3 = ?, PROVA = ?, disciplina_id = ?, aluno_id = ? WHERE id_nota = ?;";
     	
     	try {
     	    PreparedStatement ps = conn.prepareStatement(sql);
@@ -103,7 +103,7 @@ public class NotaDao implements NotaInterfaces {
     @Override
     public void excluir(int idNota) {
 
-    	String sql = "DELETE FROM NOTA WHERE ID = ?;";
+    	String sql = "DELETE FROM NOTA WHERE id_nota = ?;";
 		
 		try {
 			
@@ -119,7 +119,7 @@ public class NotaDao implements NotaInterfaces {
 
     @Override
     public List<Nota> list() {
-    	String sql = "SELECT * FROM NOTA ORDER BY ID ASC";
+    	String sql = "SELECT * FROM NOTA ORDER BY id_nota ASC";
     	List<Nota> list = null;
     	
     	try {
@@ -127,7 +127,7 @@ public class NotaDao implements NotaInterfaces {
     	    ResultSet rs = ps.executeQuery();
     	    list = new ArrayList<>();
     	    while(rs.next()) {
-        		int id = rs.getInt("id");	
+        		int id = rs.getInt("id_nota");	
         		double nota1 = rs.getDouble("nota1");
         		double nota2 = rs.getDouble("nota2");
         		double nota3 = rs.getDouble("nota3");
