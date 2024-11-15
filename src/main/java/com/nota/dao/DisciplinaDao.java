@@ -27,7 +27,7 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 
     @Override
     public void inserir(Disciplina disciplina) {
-	String sql = "INSERT INTO DISCIPLINA (NOME) VALUES (?);";
+	String sql = "INSERT INTO DISCIPLINA (nome) VALUE (?)";
 
 	try {
 	    PreparedStatement ps = conn.prepareStatement(sql);
@@ -36,7 +36,7 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 	    ps.execute();
 
 	} catch (SQLException e) {
-	    System.err.println("Erro ao inserir nota: " + e);
+	    System.err.println("Erro ao inserir disciplina: " + e);
 	}
 
     }
@@ -58,14 +58,14 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 	    }
 
 	} catch (SQLException e) {
-	    System.err.println("Erro ao inserir nota: " + e);
+	    System.err.println("Erro ao exibir nota: " + e);
 	}
 	return disciplina;
     }
 
     public List<Disciplina> list() {
 	
-	String sql = "SELECT * FROM DISCIPLINA ORDER BY NOME ASC";
+	String sql = "SELECT * FROM DISCIPLINA ORDER BY id_disciplina ASC";
 	List<Disciplina> list = null;
 	
 	try {

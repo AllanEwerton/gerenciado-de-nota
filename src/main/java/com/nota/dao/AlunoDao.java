@@ -118,7 +118,7 @@ public class AlunoDao implements AlunoInterfaces {
 
     @Override
     public List<Aluno> list() {
-    	String sql = "SELECT * FROM ALUNO ORDER BY NOME ASC";
+    	String sql = "SELECT * FROM ALUNO ORDER BY Id_aluno ASC";
     	List<Aluno> list = null;
     	
     	try {

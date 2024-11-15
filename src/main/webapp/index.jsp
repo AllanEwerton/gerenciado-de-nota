@@ -69,13 +69,13 @@
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="assets/jsp/listar-alunos.jsp" target="centro" class="sidebar-link">Aluno</a>
+                            <a href="assets/jsp/listar-alunos.jsp" frameborder="0" target="centro" class="sidebar-link">Aluno</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="assets/jsp/listar-disciplina.jsp" target="centro" class="sidebar-link">Disciplinas</a>
+                            <a href="assets/jsp/listar-disciplina.jsp" frameborder="0" target="centro" class="sidebar-link">Disciplinas</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="assets/jsp/listar-notas.jsp" target="centro" class="sidebar-link">Notas</a>
+                            <a href="assets/jsp/listar-notas.jsp" frameborder="0" target="centro" class="sidebar-link">Notas</a>
                         </li>
                     </ul>
                 </li>

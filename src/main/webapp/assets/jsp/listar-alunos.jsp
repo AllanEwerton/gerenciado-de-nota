@@ -25,49 +25,60 @@
     <h3 class="title fw-bold fs-4 mb-3 ">Relação de Alunos<hr></h3>
 
     <!-- CARDS DASHBOARD -->
-    <div class="form-card">
+    <div class="form-card row px-2">
         
+        <div class="row form mb-3">
         
-            <form class="form row g-3 col-12">
+        	<form class="g-3 col-12">
                 <div class="class">
-                    <button type="button" class="btn btn-primary">Novo aluno</button>
+                <a href="formulario-aluno.jsp">
+                	<button type="button" class="btn btn-primary">Novo aluno</button>
+                </a>
                 </div>
-
+			</form>
+			
+			
                 <div class="col-12">
                     <label for="inputAddress2" class="form-label"></label>
                     <input type="text" class="form-control" id="inputAddress2" placeholder="Digite o id ou o nome do aluno">
                   </div>
-
-                <table class="table table-striped">
+        
+        </div>
+            
+			
+                    <table class="table table-striped col-12">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
+                        <th scope="col">Ações</th>
                       </tr>
                     </thead>
+                    
+                    
                     <tbody>
+                     <%
+		AlunoInterfaces alunointerface = new AlunoDao();
+            List<Aluno> listar = alunointerface.list();
+            for(int i = 0; i<listar.size(); i++){
+	%>	
+                    
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td><%=listar.get(i).getId_aluno()%></td>
+                        <td><%=listar.get(i).getNome() %></td>
+                        <td><%=listar.get(i).getEmail() %></td>
+                        <td><%=listar.get(i).getStatus_aluno() %></td>
+                        <td>Editar</td>
+                        <td>Excluir</td>
                       </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
+                       <% } %> 
                     </tbody>
+                  
+                    
                   </table>
-              </form>
 
 
     </div>

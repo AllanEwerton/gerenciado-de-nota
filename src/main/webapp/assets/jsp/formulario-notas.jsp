@@ -1,3 +1,11 @@
+<%@page import="java.util.List"%>
+<%@page import="com.nota.interfaces.AlunoInterfaces"%>
+<%@page import="com.nota.modal.Aluno"%>
+<%@page import="com.nota.dao.AlunoDao"%>
+<%@page import="com.nota.interfaces.DisciplinaInterfaces"%>
+<%@page import="com.nota.modal.Disciplina"%>
+<%@page import="com.nota.dao.DisciplinaDao"%>
+
 <!doctype html>
 <html lang="en">
 
@@ -25,24 +33,49 @@
           <form class="form row g-3 col-12" action="controle.jsp?op=7" method="Post">
             <div class="col-8">
               <label for="inputNumber" class="form-label">Aluno</label>
-              <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select">
                 <option selected>Escolha...</option>
-                <option>001 - Jo√£o Paulo da Silva</option>
-                <option>002 - Silv√©rio dos Reis</option>
-                <option>003 - Ana Vasconcelos de Arruda</option>
+                
+                <%
+             
+             AlunoInterfaces alunointerface = new AlunoDao();
+             List<Aluno> listar = alunointerface.list();
+             for(int i = 0; i<listar.size(); i++){
+             
+             %>
+                
+                <option value="<%=listar.get(i).getId_aluno() %>"><%=listar.get(i).getId_aluno()%> - <%=listar.get(i).getNome() %></option>
+                
+             <% } %>    
+                
               </select>
             </div>
 
 
             <div class="col-4">
-              <label for="inputState" class="form-label">Disciplina</label>
-              <select id="inputState" class="form-select">
-                <option selected>Escolha...</option>
-                <option>001 - Matem√°tica</option>
-                <option>002 - L√≠ngua Portuguesa</option>
-                <option>003 - Geografia</option>
-              </select>
-            </div>
+  <label for="inputState" class="form-label">Disciplina</label>
+  <select id="inputState" class="form-select">
+    <option selected>Escolha...</option>
+
+    <%
+      DisciplinaInterfaces disciplinaInterface = new DisciplinaDao();
+      List<Disciplina> list = disciplinaInterface.list();
+      
+      // Verifica se a lista n„o est· vazia
+      if (list != null && !list.isEmpty()) {
+        for (int i = 0; i < list.size(); i++) {
+    %>
+      <option value="<%= list.get(i).getId() %>"><%= list.get(i).getId() %> - <%= list.get(i).getNome() %></option>
+    <% 
+        }
+      } else {
+    %>
+      <option disabled>Nenhuma disciplina disponÌvel</option>
+    <% 
+      }
+    %>
+  </select>
+</div>
 
               <div class="col-1">
                 <label for="inputNumber" class="form-label">Nota 1</label>

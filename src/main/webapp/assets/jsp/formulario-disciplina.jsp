@@ -22,15 +22,15 @@
   
   <!-- CARDS DASHBOARD -->
   <div class="form-card">
-          <form class="form row g-3 col-12">
+          <form class="form row g-3 col-12" action="controle.jsp?op=4" method="Post">
             <div class="col-12 col-md-9">
-              <select id="inputState" class="form-select">
+              <select id="inputState" class="form-select" name="nome">
                 <option selected>Escolha...</option>
-                <option>MatemÃ¡tica</option>
-                <option>LÃ­ngua Portuguesa</option>
-                <option>HistÃ³ria</option>
-                <option>Geografia</option>
-                <option>CiÃªncias</option>
+                <option value="Matemática">Matemática</option>
+                <option value="Língua Portuguesa">Língua Portuguesa</option>
+                <option value="História">História</option>
+                <option value="Geografia">Geografia</option>
+                <option value="Ciências">Ciências</option>
               </select>
             </div>
               <div class="col-3 text-end">

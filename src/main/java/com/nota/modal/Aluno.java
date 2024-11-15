@@ -1,4 +1,4 @@
-package com.nota.modal;
+ package com.nota.modal;
 
 public class Aluno {
     private int id_aluno;
