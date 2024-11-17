@@ -53,8 +53,7 @@
                         <th scope="col">Nome</th>
                         <th scope="col">E-mail</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Ações</th>
-                        <th scope="col">Ações</th>
+                        <th class="text-center col-1" colspan="2" >Ações</th>
                       </tr>
                     </thead>
                     
@@ -67,12 +66,25 @@
 	%>	
                     
                       <tr>
-                        <td><%=listar.get(i).getId_aluno()%></td>
-                        <td><%=listar.get(i).getNome() %></td>
-                        <td><%=listar.get(i).getEmail() %></td>
-                        <td><%=listar.get(i).getStatus_aluno() %></td>
-                        <td>Editar</td>
-                        <td>Excluir</td>
+                        <td class="align-middle"><%=listar.get(i).getId_aluno()%></td>
+                        <td class="align-middle"><%=listar.get(i).getNome() %></td>
+                        <td class="align-middle"><%=listar.get(i).getEmail() %></td>
+                        <td class="align-middle"><%=listar.get(i).getStatus_aluno() %></td>
+                        <td class="text-center align-middle">
+                        	<a href="#">
+                        		<button type="button" class="btn btn-success">
+                        			<i class="bi bi-pencil-square text-black"></i>
+                        		</button>
+                        		
+                        	</a>
+                        </td>
+                        <td class="text-center align-middle">
+                        	<a href="#">
+                        		<button type="button" class="btn btn-danger">
+                        			<i class="bi bi-trash3 text-black"></i>
+                        		</button>
+                        	</a>
+                        </td>
                       </tr>
                        <% } %> 
                     </tbody>

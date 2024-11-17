@@ -4,7 +4,7 @@
 <%@page import="com.nota.dao.NotaDao"%>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -32,7 +32,7 @@
         	<form class="g-3 col-12">
                 <div class="class">
                 <a href="formulario-aluno.jsp">
-                	<button type="button" class="btn btn-primary">Novo aluno</button>
+                	<button type="button" class="btn btn-primary">Inserir notas</button>
                 </a>
                 </div>
 			</form>
@@ -40,7 +40,7 @@
 			
                 <div class="col-12">
                     <label for="inputAddress2" class="form-label"></label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Digite o id ou o nome do aluno">
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Digite">
                   </div>
         
         </div>
@@ -50,11 +50,13 @@
                     <thead>
                       <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">E-mail</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Ações</th>
-                        <th scope="col">Ações</th>
+                        <th scope="col">Aluno</th>
+                        <th scope="col">Disciplina</th>
+                        <th scope="col">Nota1</th>
+                        <th scope="col">Nota2</th>
+                        <th scope="col">Nota3</th>
+                        <th scope="col">Prova</th>
+                        <th class="text-center col-1" colspan="2" >Ações</th>
                       </tr>
                     </thead>
                     
@@ -62,17 +64,34 @@
                     <tbody>
                      <%
 		NotaInterfaces notainterface = new NotaDao();
-            List<Nota> listar = notainterface.list();
-            for(int i = 0; i<listar.size(); i++){
+            List<Nota> list = notainterface.list();
+            for(int i = 0; i<list.size(); i++){
 	%>	
                     
                       <tr>
-                        <td><%=listar.get(i).getId_nota()%></td>
-                        <td><%=listar.get(i).getNome() %></td>
-                        <td><%=listar.get(i).getEmail() %></td>
-                        <td><%=listar.get(i).getStatus_aluno() %></td>
-                        <td>Editar</td>
-                        <td>Excluir</td>
+                        <td class="align-middle"><%=list.get(i).getId_nota()%></td>
+                        <td class="align-middle"><%=list.get(i).getAluno() %></td>
+                        <td class="align-middle"><%=list.get(i).getDisciplina() %></td>
+                        <td class="align-middle"><%=list.get(i).getNota1() %></td>
+                        <td class="align-middle"><%=list.get(i).getNota2() %></td>
+                        <td class="align-middle"><%=list.get(i).getNota3() %></td>
+                        <td class="align-middle"><%=list.get(i).getProva() %></td>
+                        
+                        <td class="text-center align-middle">
+                        	<a href="#">
+                        		<button type="button" class="btn btn-success">
+                        			<i class="bi bi-pencil-square text-black"></i>
+                        		</button>
+                        		
+                        	</a>
+                        </td>
+                        <td class="text-center align-middle">
+                        	<a href="#">
+                        		<button type="button" class="btn btn-danger">
+                        			<i class="bi bi-trash3 text-black"></i>
+                        		</button>
+                        	</a>
+                        </td>
                       </tr>
                        <% } %> 
                     </tbody>
