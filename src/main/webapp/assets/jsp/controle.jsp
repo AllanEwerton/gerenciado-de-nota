@@ -39,18 +39,24 @@
 		response.sendRedirect("formulario-aluno.jsp");  
 			break;
 		}
-	
-		//Editar aluno
-		case 2:{break;}
 		
-		//Excluir aluno
+		//Consultar aluno
+		case 2:{break;}
+				
+		//Editar aluno
 		case 3:{break;}
+	
+		//excluir aluno
+		case 4:{break;}
+		
+		//Listar aluno
+		case 5:{break;}
 	
 	
 	
 	//DISCIPLINA =====================================================
 		//Inserir disciplina
-		case 4:{
+		case 6:{
 			
 			String nome = request.getParameter("nome");
 		
@@ -63,44 +69,58 @@
 			break;
 		}
 		
+		//Consultar disciplina
+		case 7:{break;}
+						
 		//Editar disciplina
-		case 5:{break;}
-		
+		case 8:{break;}
+			
 		//Excluir disciplina
-		case 6:{break;}
+		case 9:{break;}
+				
+		//Listar disciplina
+		case 10:{break;}
 	
 	
 		
 	//NOTAS =====================================================
 		//Inserir notas
-		case 7:{
+		case 11:{
 // int id_nota, double nota1, double nota2, double nota3, double prova, Disciplina disciplina,Aluno aluno)
-			String nome = request.getParameter("nome");
-			String disciplina1 = request.getParameter("disciplina");
+			
 			
 			Double nota1 = Double.parseDouble(request.getParameter("nota1").replace(",", "."));
 			Double nota2 = Double.parseDouble(request.getParameter("nota2").replace(",", "."));
 			Double nota3 = Double.parseDouble(request.getParameter("nota3").replace(",", "."));
 			Double prova = Double.parseDouble(request.getParameter("prova").replace(",", "."));
-		
+			String nome = request.getParameter("nome");
+			String disciplina1 = request.getParameter("disciplina");
+			
+			
+			//O ERRO ESTÁ NESSA PARTE: NA HORA DO CADASTRO DAS NOTAS SÓ APARECE USUÁRIO 1)
 			Aluno aluno = iAluno.consultar(1);	
-			//out.println(aluno);
 			Disciplina disciplina = iDisciplina.consultar(1);
-			Nota nota = new Nota(nota1, nota2, nota3, prova, disciplina, aluno);
+			
 
 			NotaInterfaces iNota = new NotaDao();
+			Nota nota = new Nota(nota1, nota2, nota3, prova, disciplina, aluno);
 			iNota.inserir(nota);
-			//out.println(nota);
 		
 		    response.sendRedirect("formulario-notas.jsp");  
 			break;
 		}
 		
-		//Editar notas
-		case 8:{break;}
-		
-		//Excluir notas
-		case 9:{break;}
+		//Consultar nota
+		case 12:{break;}
+						
+		//Editar nota
+		case 13:{break;}
+			
+		//Excluir nota
+		case 44:{break;}
+				
+		//Listar nota
+		case 15:{break;}
 	
 		
 		

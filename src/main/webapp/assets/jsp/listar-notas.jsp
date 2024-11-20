@@ -2,6 +2,7 @@
 <%@page import="com.nota.interfaces.NotaInterfaces"%>
 <%@page import="com.nota.modal.Nota"%>
 <%@page import="com.nota.dao.NotaDao"%>
+<%@page import="java.text.DecimalFormat" %>
 
 <!doctype html>
 <html lang="pt-br">
@@ -56,6 +57,7 @@
                         <th scope="col">Nota2</th>
                         <th scope="col">Nota3</th>
                         <th scope="col">Prova</th>
+                        <th scope="col">Média</th>
                         <th class="text-center col-1" colspan="2" >Ações</th>
                       </tr>
                     </thead>
@@ -66,16 +68,25 @@
 		NotaInterfaces notainterface = new NotaDao();
             List<Nota> list = notainterface.list();
             for(int i = 0; i<list.size(); i++){
+        	
+        	
+        	DecimalFormat df = new DecimalFormat("#.0");
+        	double media = (((list.get(i).getNota1()+list.get(i).getNota2()+list.get(i).getNota3())/3)
+        		+(list.get(i).getProva()))/2;
+        	
 	%>	
                     
                       <tr>
                         <td class="align-middle"><%=list.get(i).getId_nota()%></td>
-                        <td class="align-middle"><%=list.get(i).getAluno() %></td>
-                        <td class="align-middle"><%=list.get(i).getDisciplina() %></td>
+                        <td class="align-middle"><%=list.get(i).getAluno().getNome() %></td>
+                        <td class="align-middle"><%=list.get(i).getDisciplina().getNome() %></td>
                         <td class="align-middle"><%=list.get(i).getNota1() %></td>
                         <td class="align-middle"><%=list.get(i).getNota2() %></td>
                         <td class="align-middle"><%=list.get(i).getNota3() %></td>
                         <td class="align-middle"><%=list.get(i).getProva() %></td>
+                        
+                        <td class="align-middle"><%=df.format(media) %></td>
+                        
                         
                         <td class="text-center align-middle">
                         	<a href="#">

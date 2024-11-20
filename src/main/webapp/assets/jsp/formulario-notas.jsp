@@ -40,7 +40,7 @@
              
              AlunoInterfaces alunointerface = new AlunoDao();
              List<Aluno> listar = alunointerface.list();
-             for(int i = 0; i<listar.size(); i++){
+             for(int i=0; i<listar.size(); i++){
              
              %>
                 
@@ -63,9 +63,9 @@
       
       // Verifica se a lista não está vazia
       if (list != null && !list.isEmpty()) {
-        for (int i = 0; i < list.size(); i++) {
+        for (int i=0; i<list.size(); i++) {
     %>
-      <option value="<%= list.get(i).getId() %>"><%= list.get(i).getId() %> - <%= list.get(i).getNome() %></option>
+      <option value="<%=list.get(i).getId() %>"><%= list.get(i).getId() %> - <%= list.get(i).getNome() %></option>
     <% 
         }
       } else {
@@ -95,14 +95,11 @@
               </div>
 
 
-
-
-
               <div class="col-12 text-end">
                 <button type="submit" class="btn btn-primary">cancelar</button>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
               </div>
-            </form>
+         </form>
 
 
   </div>

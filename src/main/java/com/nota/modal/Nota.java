@@ -6,7 +6,7 @@ public class Nota {
     private double nota2;
     private double nota3;
     private double prova;
-    private Disciplina disciplina;
+    private  Disciplina disciplina;
     private Aluno aluno;
 
     public Nota() {
