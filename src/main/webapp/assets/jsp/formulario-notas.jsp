@@ -30,7 +30,7 @@
   
   <!-- CARDS DASHBOARD -->
   <div class="form-card">
-          <form class="form row g-3 col-12" action="controle.jsp?op=7" method="Post">
+          <form class="form row g-3 col-12" action="controle.jsp?op=11" method="Post">
             <div class="col-8">
               <label for="inputNumber" class="form-label">Aluno</label>
                 <select id="inputState" class="form-select">

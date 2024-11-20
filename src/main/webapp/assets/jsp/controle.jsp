@@ -88,26 +88,27 @@
 		case 11:{
 // int id_nota, double nota1, double nota2, double nota3, double prova, Disciplina disciplina,Aluno aluno)
 			
-			
+		    String nome = request.getParameter("nome");
+			String disciplinaNome = request.getParameter("disciplina");
 			Double nota1 = Double.parseDouble(request.getParameter("nota1").replace(",", "."));
 			Double nota2 = Double.parseDouble(request.getParameter("nota2").replace(",", "."));
 			Double nota3 = Double.parseDouble(request.getParameter("nota3").replace(",", "."));
 			Double prova = Double.parseDouble(request.getParameter("prova").replace(",", "."));
-			String nome = request.getParameter("nome");
-			String disciplina1 = request.getParameter("disciplina");
 			
 			
-			//O ERRO ESTÁ NESSA PARTE: NA HORA DO CADASTRO DAS NOTAS SÓ APARECE USUÁRIO 1)
+			//O ERRO ESTÁ NESSA PARTE: NA HORA DO CADASTRO DAS NOTAS SÓ RETORNA O USUÁRIO 1
 			Aluno aluno = iAluno.consultar(1);	
 			Disciplina disciplina = iDisciplina.consultar(1);
 			
-
+			
 			NotaInterfaces iNota = new NotaDao();
 			Nota nota = new Nota(nota1, nota2, nota3, prova, disciplina, aluno);
 			iNota.inserir(nota);
-		
-		    response.sendRedirect("formulario-notas.jsp");  
+			
+			response.sendRedirect("formulario-notas.jsp");  
 			break;
+			
+			
 		}
 		
 		//Consultar nota
