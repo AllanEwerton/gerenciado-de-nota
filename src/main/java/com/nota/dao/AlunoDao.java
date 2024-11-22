@@ -30,7 +30,7 @@ public class AlunoDao implements AlunoInterfaces {
     }
 
     @Override
-    public void inserir(Aluno aluno) {
+    public void inserir(Aluno aluno) throws SQLException {
 	String sql = "INSERT INTO ALUNO (nome, email, status_aluno) VALUES (?,?,?);";
 
 	try {

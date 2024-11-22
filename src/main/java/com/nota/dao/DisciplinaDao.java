@@ -104,7 +104,7 @@ public class DisciplinaDao implements DisciplinaInterfaces {
 	@Override
 		public void excluir(int idDisciplina) {
 		    String deleteNotasSql = "DELETE FROM NOTA WHERE DISCIPLINA_ID = ?";
-		    String deleteDisciplinaSql = "DELETE FROM DISCIPLINA WHERE ID = ?";
+		    String deleteDisciplinaSql = "DELETE FROM DISCIPLINA WHERE id_disciplina = ?";
 
 		    try {
 		        // Excluir as notas associadas à disciplina

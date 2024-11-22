@@ -23,62 +23,41 @@
     <!-- CARDS DASHBOARD -->
     <div class="cards-dashboards row">
         <!-- CARD 1 -->
-        <div class="section section-alunos col-12 col-md-3">
+        <div class="section section-alunos col-12 col-md-4">
             <div class="card">
                 <div class="card-body py-4">
                     <h5 class="mb-2 fw-bold">
-                        Alunos
+                        <a href="formulario-aluno.jsp">Aluno</a>
                     </h5>
-                    <p class="mb-2 fw-bold">
-                        R$72,540
-                    </p>
+                    
                 </div>
             </div>
         </div>
 
         <!-- CARD 2 -->
-        <div class="section section-disciplina col-12 col-md-3">
+        <div class="section section-disciplina col-12 col-md-4">
             <div class="card">
                 <div class="card-body py-4">
                     <h5 class="mb-2 fw-bold">
-                        Disciplinas
+                        <a href="formulario-disciplina.jsp">Disciplina</a>
                     </h5>
-                    <p class="mb-2 fw-bold">
-                        R$72,540
-                    </p>
+                    
                 </div>
             </div>
         </div>
 
         <!-- CARD 3 -->
-        <div class="section section-aprovados col-12 col-md-3">
+        <div class="section section-aprovados col-12 col-md-4">
             <div class="card">
                 <div class="card-body py-4">
                     <h5 class="mb-2 fw-bold">
-                        Aprovados
+                         <a href="formulario-notas.jsp">Notas</a>
                     </h5>
-                    <p class="mb-2 fw-bold">
-                        R$72,540
-                    </p>
+                    
                 </div>
 
             </div>
         </div>
-
-        <!-- CARD 4 -->
-        <div class="section section-reprovados col-12 col-md-3">
-            <div class="card">
-                <div class="card-body py-4">
-                    <h5 class="mb-2 fw-bold">
-                        Reprovados
-                    </h5>
-                    <p class="mb-2 fw-bold">
-                        R$72,540
-                    </p>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <h3 class="fw-bold fs-4 my-3">Lista dos alunos aprovados</h3>
